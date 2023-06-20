@@ -3,59 +3,44 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public float Horizontal { get; private set; }
-    public float Vertical { get; private set; }
-    public bool IsBreaking { get; private set; }
+    private float _horizontal;
+    private float _vertical;
+    private bool _isBreaking;
+
+    public float Horizontal => _horizontal;
+    public float Vertical => _vertical;
+    public bool IsBreaking => _isBreaking;
 
     public void ForwardInput(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            Vertical = 1;
-        }
-
-        if (context.canceled)
-        {
-            Vertical = 0;
-        }
+        SetAxisInput(context, ref _vertical, 1);
     }
 
     public void BackwardInput(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            Vertical = -1;
-        }
-
-        if (context.canceled)
-        {
-            Vertical = 0;
-        }
+        SetAxisInput(context, ref _vertical, -1);
     }
 
     public void RightInput(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            Horizontal = 1;
-        }
-
-        if (context.canceled)
-        {
-            Horizontal = 0;
-        }
+        SetAxisInput(context, ref _horizontal, 1);
     }
 
     public void LeftInput(InputAction.CallbackContext context)
     {
+        SetAxisInput(context, ref _horizontal, -1);
+    }
+
+    private void SetAxisInput(InputAction.CallbackContext context, ref float axis, float input)
+    {
         if (context.started)
         {
-            Horizontal = -1;
+            axis = input;
         }
 
         if (context.canceled)
         {
-            Horizontal = 0;
+            axis = 0;
         }
     }
 
@@ -63,12 +48,12 @@ public class InputManager : MonoBehaviour
     {
         if (context.started)
         {
-            IsBreaking = true;
+            _isBreaking = true;
         }
 
         if (context.canceled)
         {
-            IsBreaking = false;
+            _isBreaking = false;
         }
     }
 }

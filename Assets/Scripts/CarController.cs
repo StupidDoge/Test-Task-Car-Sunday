@@ -8,22 +8,22 @@ public class CarController : MonoBehaviour
     [SerializeField] private float maxSteerAngle;
 
     [Header("Colliders")]
-    [SerializeField] private WheelCollider frontLeftWheelCollider;
-    [SerializeField] private WheelCollider frontRightWheelCollider;
-    [SerializeField] private WheelCollider rearLeftWheelCollider;
-    [SerializeField] private WheelCollider rearRightWheelCollider;
+    [SerializeField] private WheelCollider _frontLeftWheelCollider;
+    [SerializeField] private WheelCollider _frontRightWheelCollider;
+    [SerializeField] private WheelCollider _rearLeftWheelCollider;
+    [SerializeField] private WheelCollider _rearRightWheelCollider;
 
     [Header("Wheels")]
-    [SerializeField] private Transform frontLeftWheelTransform;
-    [SerializeField] private Transform frontRightWheeTransform;
-    [SerializeField] private Transform rearLeftWheelTransform;
-    [SerializeField] private Transform rearRightWheelTransform;
+    [SerializeField] private Transform _frontLeftWheelTransform;
+    [SerializeField] private Transform _frontRightWheeTransform;
+    [SerializeField] private Transform _rearLeftWheelTransform;
+    [SerializeField] private Transform _rearRightWheelTransform;
 
     [Header("Other")]
     [SerializeField] private InputManager _inputManager;
 
-    private float currentSteerAngle;
-    private float currentbreakForce;
+    private float _currentSteerAngle;
+    private float _currentbreakForce;
 
     private void FixedUpdate()
     {
@@ -34,33 +34,33 @@ public class CarController : MonoBehaviour
 
     private void HandleMotor()
     {
-        frontLeftWheelCollider.motorTorque = _inputManager.Vertical * motorForce;
-        frontRightWheelCollider.motorTorque = _inputManager.Vertical * motorForce;
-        currentbreakForce = _inputManager.IsBreaking ? breakForce : 0f;
+        _frontLeftWheelCollider.motorTorque = _inputManager.Vertical * motorForce;
+        _frontRightWheelCollider.motorTorque = _inputManager.Vertical * motorForce;
+        _currentbreakForce = _inputManager.IsBreaking ? breakForce : 0f;
         ApplyBreaking();       
     }
 
     private void ApplyBreaking()
     {
-        frontRightWheelCollider.brakeTorque = currentbreakForce;
-        frontLeftWheelCollider.brakeTorque = currentbreakForce;
-        rearLeftWheelCollider.brakeTorque = currentbreakForce;
-        rearRightWheelCollider.brakeTorque = currentbreakForce;
+        _frontRightWheelCollider.brakeTorque = _currentbreakForce;
+        _frontLeftWheelCollider.brakeTorque = _currentbreakForce;
+        _rearLeftWheelCollider.brakeTorque = _currentbreakForce;
+        _rearRightWheelCollider.brakeTorque = _currentbreakForce;
     }
 
     private void HandleSteering()
     {
-        currentSteerAngle = maxSteerAngle * _inputManager.Horizontal;
-        frontLeftWheelCollider.steerAngle = currentSteerAngle;
-        frontRightWheelCollider.steerAngle = currentSteerAngle;
+        _currentSteerAngle = maxSteerAngle * _inputManager.Horizontal;
+        _frontLeftWheelCollider.steerAngle = _currentSteerAngle;
+        _frontRightWheelCollider.steerAngle = _currentSteerAngle;
     }
 
     private void UpdateWheels()
     {
-        UpdateSingleWheel(frontLeftWheelCollider, frontLeftWheelTransform, 0);
-        UpdateSingleWheel(frontRightWheelCollider, frontRightWheeTransform, 180);
-        UpdateSingleWheel(rearRightWheelCollider, rearRightWheelTransform, 180);
-        UpdateSingleWheel(rearLeftWheelCollider, rearLeftWheelTransform, 0);
+        UpdateSingleWheel(_frontLeftWheelCollider, _frontLeftWheelTransform, 0);
+        UpdateSingleWheel(_frontRightWheelCollider, _frontRightWheeTransform, 180);
+        UpdateSingleWheel(_rearRightWheelCollider, _rearRightWheelTransform, 180);
+        UpdateSingleWheel(_rearLeftWheelCollider, _rearLeftWheelTransform, 0);
     }
 
     private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform, int angle)

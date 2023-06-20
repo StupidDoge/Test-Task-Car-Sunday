@@ -5,9 +5,9 @@ public class InputManager : MonoBehaviour
     private const string VERTICAL = "Vertical";
     private const string HORIZONTAL = "Horizontal";
 
-    public float Horizontal { get; set; }
-    public float Vertical { get; set; }
-    public bool IsBreaking { get; set; }
+    public float Horizontal { get; private set; }
+    public float Vertical { get; private set; }
+    public bool IsBreaking { get; private set; }
 
     private void Update()
     {

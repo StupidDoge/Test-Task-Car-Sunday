@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!146 &20920016 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 8218976175189092377, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+  m_PrefabInstance: {fileID: 1251761075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &33622422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8961359253771211100, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
@@ -704,6 +709,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!146 &1244917213 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 4363888570275695194, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+  m_PrefabInstance: {fileID: 1251761075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1244986969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 50754954277266222, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
@@ -746,6 +756,38 @@ PrefabInstance:
       propertyPath: _inputManager
       value: 
       objectReference: {fileID: 1239292506}
+    - target: {fileID: 3082787855574152640, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: _rearLeftWheelCollider
+      value: 
+      objectReference: {fileID: 1312743379}
+    - target: {fileID: 3082787855574152640, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: _frontLeftWheelCollider
+      value: 
+      objectReference: {fileID: 1244917213}
+    - target: {fileID: 3082787855574152640, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: _rearLeftWheelTransform
+      value: 
+      objectReference: {fileID: 1735642625}
+    - target: {fileID: 3082787855574152640, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: _rearRightWheelCollider
+      value: 
+      objectReference: {fileID: 1986074519}
+    - target: {fileID: 3082787855574152640, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: _frontLeftWheelTransform
+      value: 
+      objectReference: {fileID: 2139354229}
+    - target: {fileID: 3082787855574152640, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: _frontRightWheeTransform
+      value: 
+      objectReference: {fileID: 1261460179}
+    - target: {fileID: 3082787855574152640, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: _frontRightWheelCollider
+      value: 
+      objectReference: {fileID: 20920016}
+    - target: {fileID: 3082787855574152640, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: _rearRightWheelTransform
+      value: 
+      objectReference: {fileID: 1562212461}
     - target: {fileID: 5117142192361990889, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -826,6 +868,14 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.05397091
       objectReference: {fileID: 0}
+    - target: {fileID: 5542305359989629828, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: m_Name
+      value: Wheels
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702589039006517039, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+      propertyPath: m_Name
+      value: Wheel Colliders
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
 --- !u!4 &1251761076 stripped
@@ -852,6 +902,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6968846074178130577, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
+--- !u!4 &1261460179 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4501530608435682866, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+  m_PrefabInstance: {fileID: 1251761075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &1312743379 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 8159354084258200186, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+  m_PrefabInstance: {fileID: 1251761075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342072823 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8909014827084220490, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
@@ -890,6 +950,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8302102485596996044, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
+--- !u!4 &1562212461 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3833141664872255948, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+  m_PrefabInstance: {fileID: 1251761075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1646419191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5049032948309972686, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
@@ -928,6 +993,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7472489367437063108, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
+--- !u!4 &1735642625 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3176331631623793383, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+  m_PrefabInstance: {fileID: 1251761075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1829070754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1122,6 +1192,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5665763164275481281, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
+--- !u!146 &1986074519 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 825032467006580761, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+  m_PrefabInstance: {fileID: 1251761075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2060870318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5394693769120690257, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
@@ -1141,6 +1216,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8663802791670341782, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}
+--- !u!4 &2139354229 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 658530002693637021, guid: 2c3a6ba28e81b8140841cf92f68be213, type: 3}
+  m_PrefabInstance: {fileID: 1251761075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2143692254 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2655573560833850164, guid: 4ea99c141ddb0ab4f888e18cb722c792, type: 3}

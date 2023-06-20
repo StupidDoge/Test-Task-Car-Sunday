@@ -1,54 +1,42 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    private const string HORIZONTAL = "Horizontal";
-    private const string VERTICAL = "Vertical";
-
-    private float horizontalInput;
-    private float verticalInput;
-    private float currentSteerAngle;
-    private float currentbreakForce;
-    private bool isBreaking;
-
+    [Header("Characteristics")]
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
 
+    [Header("Colliders")]
     [SerializeField] private WheelCollider frontLeftWheelCollider;
     [SerializeField] private WheelCollider frontRightWheelCollider;
     [SerializeField] private WheelCollider rearLeftWheelCollider;
     [SerializeField] private WheelCollider rearRightWheelCollider;
 
+    [Header("Wheels")]
     [SerializeField] private Transform frontLeftWheelTransform;
     [SerializeField] private Transform frontRightWheeTransform;
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform rearRightWheelTransform;
 
+    [Header("Other")]
+    [SerializeField] private InputManager _inputManager;
+
+    private float currentSteerAngle;
+    private float currentbreakForce;
+
     private void FixedUpdate()
     {
-        GetInput();
         HandleMotor();
         HandleSteering();
         UpdateWheels();
     }
 
-
-    private void GetInput()
-    {
-        horizontalInput = Input.GetAxis(HORIZONTAL);
-        verticalInput = Input.GetAxis(VERTICAL);
-        isBreaking = Input.GetKey(KeyCode.Space);
-    }
-
     private void HandleMotor()
     {
-        frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
-        frontRightWheelCollider.motorTorque = verticalInput * motorForce;
-        currentbreakForce = isBreaking ? breakForce : 0f;
+        frontLeftWheelCollider.motorTorque = _inputManager.Vertical * motorForce;
+        frontRightWheelCollider.motorTorque = _inputManager.Vertical * motorForce;
+        currentbreakForce = _inputManager.IsBreaking ? breakForce : 0f;
         ApplyBreaking();       
     }
 
@@ -62,7 +50,7 @@ public class CarController : MonoBehaviour
 
     private void HandleSteering()
     {
-        currentSteerAngle = maxSteerAngle * horizontalInput;
+        currentSteerAngle = maxSteerAngle * _inputManager.Horizontal;
         frontLeftWheelCollider.steerAngle = currentSteerAngle;
         frontRightWheelCollider.steerAngle = currentSteerAngle;
     }

@@ -1,11 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    public event Action<bool> OnBreakPressed;
+    public event Action<bool> FrontLightsPressed;
+
     private float _horizontal;
     private float _vertical;
     private bool _isBreaking;
+    private bool _frontLightsEnabled;
 
     public float Horizontal => _horizontal;
     public float Vertical => _vertical;
@@ -49,11 +54,30 @@ public class InputManager : MonoBehaviour
         if (context.started)
         {
             _isBreaking = true;
+            OnBreakPressed?.Invoke(true);
         }
 
         if (context.canceled)
         {
             _isBreaking = false;
+            OnBreakPressed?.Invoke(false);
+        }
+    }
+
+    public void LightInput(InputAction.CallbackContext context)
+    {
+        if (context.canceled)
+        {
+            if (_frontLightsEnabled)
+            {
+                _frontLightsEnabled = false;
+                FrontLightsPressed?.Invoke(false);
+            }
+            else
+            {
+                _frontLightsEnabled = true;
+                FrontLightsPressed?.Invoke(true);
+            }
         }
     }
 }

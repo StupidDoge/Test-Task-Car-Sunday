@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class CarController : MonoBehaviour
 {
@@ -19,8 +20,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform _rearLeftWheelTransform;
     [SerializeField] private Transform _rearRightWheelTransform;
 
-    [Header("Other")]
-    [SerializeField] private InputManager _inputManager;
+    [Inject] private InputManager _inputManager;
 
     private float _currentSteerAngle;
     private float _currentbreakForce;

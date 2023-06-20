@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class CarLights : MonoBehaviour
 {
@@ -6,7 +7,9 @@ public class CarLights : MonoBehaviour
     [SerializeField] private Light _rearRightLight;
     [SerializeField] private Light _frontLeftLight;
     [SerializeField] private Light _frontRightLight;
-    [SerializeField] private InputManager _inputManager;
+
+
+    [Inject] private InputManager _inputManager;
 
     private void OnEnable()
     {

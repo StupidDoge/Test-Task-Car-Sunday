@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     private float _horizontal;
     private float _vertical;
     private bool _isBreaking;
-    private bool _frontLightsEnabled;
+    private bool _frontLightsEnabled = true;
 
     public float Horizontal => _horizontal;
     public float Vertical => _vertical;

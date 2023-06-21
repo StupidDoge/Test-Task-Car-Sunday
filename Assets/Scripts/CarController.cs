@@ -7,6 +7,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
+    [SerializeField] private Transform _centerOfMass;
 
     [Header("Colliders")]
     [SerializeField] private WheelCollider _frontLeftWheelCollider;
@@ -22,8 +23,16 @@ public class CarController : MonoBehaviour
 
     [Inject] private InputManager _inputManager;
 
+    private Rigidbody _rigidbody;
+
     private float _currentSteerAngle;
     private float _currentbreakForce;
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.centerOfMass = new Vector3(_centerOfMass.localPosition.x, _centerOfMass.localPosition.y, _centerOfMass.localPosition.z);
+    }
 
     private void FixedUpdate()
     {

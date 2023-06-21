@@ -8,7 +8,6 @@ public class CarLights : MonoBehaviour
     [SerializeField] private Light _frontLeftLight;
     [SerializeField] private Light _frontRightLight;
 
-
     [Inject] private InputManager _inputManager;
 
     private void OnEnable()

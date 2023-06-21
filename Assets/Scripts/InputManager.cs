@@ -68,16 +68,8 @@ public class InputManager : MonoBehaviour
     {
         if (context.canceled)
         {
-            if (_frontLightsEnabled)
-            {
-                _frontLightsEnabled = false;
-                FrontLightsPressed?.Invoke(false);
-            }
-            else
-            {
-                _frontLightsEnabled = true;
-                FrontLightsPressed?.Invoke(true);
-            }
+            _frontLightsEnabled = !_frontLightsEnabled;
+            FrontLightsPressed?.Invoke(_frontLightsEnabled);
         }
     }
 }

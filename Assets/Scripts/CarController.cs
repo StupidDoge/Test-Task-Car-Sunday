@@ -37,10 +37,10 @@ public class CarController : MonoBehaviour
         _frontLeftWheelCollider.motorTorque = _inputManager.Vertical * motorForce;
         _frontRightWheelCollider.motorTorque = _inputManager.Vertical * motorForce;
         _currentbreakForce = _inputManager.IsBreaking ? breakForce : 0f;
-        ApplyBreaking();       
+        ApplyBreakingForce();       
     }
 
-    private void ApplyBreaking()
+    private void ApplyBreakingForce()
     {
         _frontRightWheelCollider.brakeTorque = _currentbreakForce;
         _frontLeftWheelCollider.brakeTorque = _currentbreakForce;
@@ -66,8 +66,8 @@ public class CarController : MonoBehaviour
     private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform, int angle)
     {
         Vector3 pos;
-        Quaternion rot
-;       wheelCollider.GetWorldPose(out pos, out rot);
+        Quaternion rot;
+        wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot * Quaternion.Euler(0, angle, 90);
         wheelTransform.position = pos;
     }
